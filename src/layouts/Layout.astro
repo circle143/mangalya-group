@@ -28,7 +28,7 @@ import Footer from "../components/footer/footer.astro";
 			<main>
 				<slot />
 			</main>
-            <Footer />
+			<Footer />
 		</div>
 	</body><script>
 		document.addEventListener("astro:page-load", () => {
@@ -43,16 +43,15 @@ import Footer from "../components/footer/footer.astro";
 			display: flex;
 			flex-direction: column;
 			min-height: 100vb;
-
 		}
 
 		main {
 			display: grid;
 			gap: clamp(3em, 4vi, 4em);
 
-            /* padding-block: clamp(3em, 4vi, 4em); */
-            height: 100%;
-            flex-grow: 1;
+			padding-block-end: clamp(3em, 4vi, 4em);
+			height: 100%;
+			flex-grow: 1;
 		}
 	</style>
 </html>

@@ -1,0 +1,17 @@
+@use "/src/styles/abstracts" as ab;
+
+.hero {
+	background-image: url("/hero.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+
+	h1 {
+		text-align: center;
+		padding-block: 4em 4em;
+
+		color: var(--white);
+
+		font-size: clamp(3rem, 4vi, 3.75rem);
+	}
+}

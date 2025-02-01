@@ -1,0 +1,27 @@
+@use "/src/styles/abstracts" as ab;
+
+.carrer {
+	display: grid;
+	gap: clamp(1rem, 3vi, 2rem);
+
+	h3 {
+		text-align: center;
+		text-wrap: balance;
+
+		line-height: 1.375em;
+
+		@include ab.screen-40 {
+			text-align: left;
+		}
+	}
+
+	ol {
+		padding: 0;
+		list-style-position: inside;
+	}
+
+	a {
+		font-weight: 600;
+		font-size: 1.125rem;
+	}
+}

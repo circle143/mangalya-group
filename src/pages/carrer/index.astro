@@ -1,0 +1,42 @@
+---
+import Hero from "../../components/hero/Hero.astro";
+import { carrer } from "../../data/contact";
+import Layout from "../../layouts/Layout.astro";
+
+import styles from "./carrer.module.scss";
+---
+
+<Layout title="Mangalya Group - Carrer">
+	<Hero title="Work With Us" />
+
+	<div class={`container ${styles.carrer}`}>
+		<h3>Build Your Future with Mangalya Group</h3>
+
+		<p>
+			At Mangalya Group, we believe in fostering talent and creating
+			opportunities for growth. Join our team and take the next step in
+			your career. Enjoy a collaborative work environment that values your
+			skills. Together, we’ll succeed and grow.
+		</p>
+
+		<div>
+			<p>Open Positions:</p>
+
+			<ol>
+				<li>Business Development Associate</li>
+				<li>Motion Graphic Designer</li>
+				<li>Customer Success Associate</li>
+			</ol>
+		</div>
+
+		<p>
+			Interested in joining us? Mention your desired designation in the
+			subject line example “Business Development Associate” and send your
+			resume to <a
+				href={`mailto:${carrer}`}
+				data-type="link"
+				data-variant="normal">{carrer}</a
+			>
+		</p>
+	</div>
+</Layout>
