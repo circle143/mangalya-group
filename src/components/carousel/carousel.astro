@@ -10,8 +10,8 @@ const { images } = Astro.props;
 ---
 
 <div class={styles.hero}>
-	<div id="embla" class={styles.image}>
-		<div class={styles.embla__viewport} id="embla__viewport">
+	<div class={`embla ${styles.image}`}>
+		<div class={`embla-viewport ${styles.embla__viewport}`}>
 			<div class={styles.embla__container}>
 				{
 					images.map((item) => {

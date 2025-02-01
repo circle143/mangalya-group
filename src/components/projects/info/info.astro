@@ -6,15 +6,15 @@ interface Props {
 
 const { project, description } = Astro.props;
 
-import InfoForm from "./info-form";
+import InfoForm from "./info-form/info-form";
 import styles from "./info.module.scss";
 ---
 
-<div class={`container ${styles.container}`}>
+<div id="overview" class={`container ${styles.container}`}>
 	<div class={styles.info}>
 		<h3>{project}</h3>
 		<p>{description}</p>
 	</div>
 
-	<InfoForm project={project} client:load />
+	<InfoForm download={false} project={project} client:load />
 </div>

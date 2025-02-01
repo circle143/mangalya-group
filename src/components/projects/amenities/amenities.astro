@@ -1,0 +1,49 @@
+---
+interface Props {
+	text: string;
+	items: {
+		name: string;
+		image: string;
+	}[];
+}
+
+const { text, items } = Astro.props;
+
+import { Icon } from "astro-icon/components";
+import styles from "./amenities.module.scss";
+---
+
+<div class={styles.amenities}>
+	<div class={`container ${styles.container}`}>
+		<div class={styles.heading}>
+			<h3>Amenties</h3>
+
+			<p>{text}</p>
+		</div>
+
+		<div class={`embla ${styles.carousel}`}>
+			<button data-type="link" class={`left ${styles.left}`}
+				><Icon name="fa6-solid:arrow-left-long" size={20} /></button
+			>
+			<button data-type="link" class={`right ${styles.right}`}
+				><Icon name="fa6-solid:arrow-right-long" size={20} /></button
+			>
+
+			<div class={`embla-viewport ${styles.embla__viewport}`}>
+				<div class={styles.embla__container}>
+					{
+						items.map((item) => {
+							return (
+								<div class={styles.embla__slide}>
+									<img src={item.image} alt="" />
+
+									<p>{item.name}</p>
+								</div>
+							);
+						})
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

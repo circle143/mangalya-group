@@ -1,0 +1,37 @@
+@use "/src/styles/abstracts" as ab;
+
+.form {
+	background-color: var(--light-grey);
+
+	padding-inline: clamp(1rem, 2vi, 1.5rem);
+	padding-block: clamp(1.5rem, 2.5vi, 2rem);
+	border-radius: 1rem;
+
+	h3 {
+		text-align: center;
+		font-size: 1.5rem;
+
+		@include ab.info {
+			text-align: left;
+		}
+	}
+
+	display: grid;
+	gap: 1rem;
+
+	align-content: start;
+
+	form {
+		display: grid;
+		gap: 1rem;
+		grid-auto-rows: 1fr;
+
+		input {
+			padding-inline-start: 0.5rem;
+		}
+
+		> div {
+			text-align: center;
+		}
+	}
+}

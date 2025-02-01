@@ -1,11 +1,12 @@
 import React from "react";
-import styles from "./info.module.scss";
+import styles from "./info-form.module.scss";
 
 interface InfoFormProps {
 	project: string;
+	download: boolean;
 }
 
-const InfoForm = ({ project }: InfoFormProps) => {
+const InfoForm = ({ project, download }: InfoFormProps) => {
 	return (
 		<div className={styles.form}>
 			<h3>Enquire Now</h3>
@@ -23,7 +24,7 @@ const InfoForm = ({ project }: InfoFormProps) => {
 						data-variant="primary"
 						type="submit"
 					>
-						Submit
+						{download ? "Download" : "Submit"}
 					</button>
 				</div>
 			</form>

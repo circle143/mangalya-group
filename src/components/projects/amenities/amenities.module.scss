@@ -1,0 +1,109 @@
+@use "/src/styles/abstracts" as ab;
+
+.amenities {
+	background-color: var(--light-grey);
+	padding-block: 3rem;
+
+	.container {
+		display: grid;
+		gap: 2rem;
+
+		.heading {
+			display: grid;
+			gap: 0.5rem;
+
+			text-align: center;
+			text-wrap: balance;
+			h3 {
+				font-size: 1.75rem;
+			}
+
+			p {
+				font-size: 1.25rem;
+				color: var(--grey-text);
+				font-weight: 600;
+			}
+		}
+
+		.carousel {
+			--_h: 25rem;
+			--slide-size: 100%;
+			--slide-spacing: 1rem;
+			--offset: 0px;
+
+			height: var(--_h);
+
+			position: relative;
+
+			> button {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				translate: 0 -50%;
+				display: none;
+
+				@include ab.screen-40 {
+					display: block;
+				}
+			}
+
+			.right {
+				right: calc(-20px - var(--offset));
+			}
+
+			.left {
+				left: calc(-20px - var(--offset));
+			}
+
+			@include ab.screen-40 {
+				--slide-size: 50%;
+				--slide-spacing: 1.5rem;
+				--offset: 10px;
+			}
+
+			@include ab.screen-50 {
+				--slide-size: 33.33%;
+				--slide-spacing: 2rem;
+			}
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: var(--_h);
+			}
+
+			.embla__viewport {
+				overflow: hidden;
+				height: 100%;
+			}
+
+			.embla__container {
+				display: flex;
+				margin-left: calc(var(--slide-spacing) * -1);
+				touch-action: pan-y pinch-zoom;
+				height: 100%;
+			}
+			.embla__slide {
+				transform: translate3d(0, 0, 0);
+				flex: 0 0 var(--slide-size);
+				min-width: 0;
+				padding-left: var(--slide-spacing);
+
+				position: relative;
+
+				p {
+					position: absolute;
+
+					font-size: 1.5rem;
+					bottom: 0;
+					padding-block: 0.25rem;
+					width: 100%;
+					text-align: center;
+
+					font-weight: 600;
+					background-color: hsl(from var(--light-grey) h s l / 0.25);
+				}
+			}
+		}
+	}
+}

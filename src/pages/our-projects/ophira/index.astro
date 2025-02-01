@@ -1,5 +1,6 @@
 ---
 import Carousel from "../../../components/carousel/carousel.astro";
+import Amenities from "../../../components/projects/amenities/amenities.astro";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -14,6 +15,59 @@ const images = [
 const project = "Mangalya Ophira";
 const description =
 	"Mangalya Novena green, Noida Extension could be a place, wherever fresh air caresses you, orning dew welcomes you, lovely landscapes greet you and luxurious green surroundings assist you unwind & rejuvenate. Having 20 acres of land with a 600 meter wide front, novena green includes a grand look whereas a 130 meter wide road permits trouble free connectivity to the NCR. Mangalya Novena green, Noida Extension could be a place, wherever fresh air caresses you, orning dew welcomes you, lovely landscapes greet you and luxurious green surroundings assist you unwind & rejuvenate. Having 20 acres of land with a 600 meter wide front, novena green includes a grand look whereas a 130 meter wide road permits trouble free connectivity to the NCR.";
+
+const aminitiesText = "Mangalya Novena Green Noida Extension Features";
+
+const aminitiesItem = [
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+];
 ---
 
 <Layout title="Mangalya Group - Ophira">
@@ -22,4 +76,6 @@ const description =
 	<Logo logo="/projects/ophira.svg" project={project} />
 
 	<Info project={project} description={description} />
+
+	<Amenities text={aminitiesText} items={aminitiesItem} />
 </Layout>

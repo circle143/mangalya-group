@@ -1,5 +1,6 @@
 ---
 import Carousel from "../../../components/carousel/carousel.astro";
+import Amenities from "../../../components/projects/amenities/amenities.astro";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -14,6 +15,58 @@ const images = [
 const project = "Horizon Anant";
 const description =
 	"Horizon Anant, a visionary residential project, now comes under the esteemed management of Mangalya Group. Originally conceptualized by Horizon Dwellings Pvt Ltd, this landmark development has been elevated under the expert stewardship of Mangalya Group, renowned for its commitment to excellence in real estate. With a rich legacy of delivering transformative residential projects, Mangalya Group brings professionalism, timely delivery, premium quality, and customer satisfaction to the forefront. Together, they have redefined affordable luxury, creating a living experience that transcends mere living spaces. it's a -lifestyle crafted with passion, precision, and perfection.";
+
+const aminitiesText = "Mangalya Horizon Anant Features";
+const aminitiesItem = [
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+	{
+		name: "Gym",
+		image: "/projects/amenities/novena/one.png",
+	},
+	{
+		name: "Swimming Pool",
+		image: "/projects/amenities/novena/two.png",
+	},
+	{
+		name: "Club",
+		image: "/projects/amenities/novena/three.png",
+	},
+];
 ---
 
 <Layout title="Mangalya Group - Anant Horizon">
@@ -22,4 +75,6 @@ const description =
 	<Logo logo="/projects/anant.svg" project={project} />
 
 	<Info project={project} description={description} />
+
+	<Amenities text={aminitiesText} items={aminitiesItem} />
 </Layout>
