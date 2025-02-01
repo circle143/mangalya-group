@@ -1,0 +1,64 @@
+@use "/src/styles/abstracts" as ab;
+
+.mission {
+	display: grid;
+	gap: 2rem;
+
+	h3 {
+		line-height: 1.375em;
+	}
+
+	.text {
+		display: grid;
+		gap: clamp(1rem, 1.5vi, 1.25rem);
+
+		align-content: start;
+		justify-content: start;
+
+		text-align: center;
+		text-wrap: balance;
+
+		@include ab.screen-40 {
+			text-align: left;
+		}
+	}
+
+	.card {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+
+		.item {
+			display: grid;
+			gap: 1.5rem;
+
+			align-content: start;
+
+			.image {
+				img {
+					margin-inline: auto;
+				}
+			}
+		}
+
+		.info {
+			display: grid;
+			gap: 0.5rem;
+
+			text-align: center;
+			text-wrap: balance;
+
+			h4 {
+				font-size: 1.125rem;
+			}
+
+			@include ab.screen-48 {
+				text-align: left;
+
+				p {
+					text-align: justify;
+				}
+			}
+		}
+	}
+}

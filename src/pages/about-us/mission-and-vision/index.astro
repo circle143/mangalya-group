@@ -1,0 +1,89 @@
+---
+import Hero from "../../../components/hero/Hero.astro";
+import Layout from "../../../layouts/Layout.astro";
+
+import styles from "./mission.module.scss";
+
+const contentArray = [
+	{
+		heading: "Quality Living, Value for Money",
+		text: "Mangaly Group is committed to delivering high-quality residential spaces that provide true value for money. Every project is designed with careful planning and attention to detail, ensuring long-term satisfaction for homeowners. Our developments offer a balance of affordability, premium amenities, and enduring value, making homeownership a rewarding investment.",
+		image: "/mission-1.svg",
+	},
+	{
+		heading: "Sustainable and Green Living",
+		text: "We believe in building a future that aligns with environmental responsibility. Our projects incorporate sustainable construction practices, energy-efficient designs, and green spaces to promote a healthier and eco-friendly lifestyle. By focusing on sustainability, Mangaly Group contributes to a greener and cleaner India.",
+		image: "/mission-2.svg",
+	},
+	{
+		heading: "Building Communities for Tomorrow",
+		text: "Beyond constructing homes, Mangaly Group aims to create vibrant communities where families can thrive. Our residential projects are designed to foster a sense of belonging, with thoughtfully planned spaces that encourage social interaction, security, and overall well-being.",
+		image: "/mission-3.svg",
+	},
+];
+---
+
+<Layout title="Mangalya Group - Carrer">
+	<Hero title="Mission & Vision" />
+
+	<div class={`container ${styles.mission}`}>
+		<div class={styles.card}>
+			{
+				contentArray.map((item) => {
+					return (
+						<div class={styles.item}>
+							<div class={styles.image}>
+								<img
+									src={item.image}
+									alt={item.heading}
+									width="200"
+									height="200"
+								/>
+							</div>
+
+							<div class={styles.info}>
+								<h4>{item.heading}</h4>
+
+								<p>{item.text}</p>
+							</div>
+						</div>
+					);
+				})
+			}
+		</div>
+
+		<div class={styles.text}>
+			<h3>Future of Mangalya Group in Delhi NCR's Residential Sector</h3>
+
+			<p>
+				Mangalya Group envisions playing a pivotal role in shaping the
+				residential real estate landscape of Delhi NCR. With a strong
+				foundation built on trust, transparency, and quality
+				construction, we are committed to delivering homes that meet the
+				evolving needs of modern homebuyers. Our projects, including
+				Mangalya Ophira and Mangalya Novena Greens, exemplify this
+				vision by offering well-planned residential spaces with
+				contemporary amenities and thoughtful designs.
+			</p>
+
+			<p>
+				As the demand for sustainable and affordable housing grows,
+				Mangalya Group will continue to integrate eco-friendly
+				solutions, innovative architecture, and smart infrastructure
+				into its developments. By staying ahead of industry trends and
+				maintaining a customer-first approach, we aim to set new
+				standards in residential real estate while contributing to the
+				broader goal of a Green India.
+			</p>
+
+			<p>
+				With a strong track record of delivering on promises, Mangalya
+				Group remains focused on expanding its presence in Delhi NCR,
+				ensuring that every homebuyer finds a place that offers comfort,
+				security, and long-term value. Through continuous growth and
+				innovation, we look forward to building homes that stand the
+				test of time and enhance the quality of urban living.
+			</p>
+		</div>
+	</div>
+</Layout>
