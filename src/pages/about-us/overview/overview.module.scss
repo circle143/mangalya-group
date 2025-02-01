@@ -1,0 +1,29 @@
+@use "/src/styles/abstracts" as ab;
+
+.overview {
+	.image_lg {
+		display: none;
+		float: left;
+		margin-inline-end: 1rem;
+	}
+
+	.image_sm {
+		img {
+			margin-inline: auto;
+		}
+	}
+
+	@include ab.screen-64 {
+		.image_lg {
+			display: block;
+		}
+
+		.image_sm {
+			display: none;
+		}
+	}
+
+	> * {
+		margin-block: 1rem;
+	}
+}
