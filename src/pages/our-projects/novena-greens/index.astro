@@ -1,6 +1,8 @@
 ---
+import { promise } from "astro:schema";
 import Carousel from "../../../components/carousel/carousel.astro";
 import Amenities from "../../../components/projects/amenities/amenities.astro";
+import Enquire from "../../../components/projects/enquire/enquire.astro";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -68,6 +70,8 @@ const aminitiesItem = [
 		image: "/projects/amenities/novena/three.png",
 	},
 ];
+
+const map = "/projects/location/novena.png";
 ---
 
 <Layout title="Mangalya Group - Novena Greens">
@@ -78,4 +82,6 @@ const aminitiesItem = [
 	<Info project={project} description={description} />
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
+
+	<Enquire project={project} image={map} />
 </Layout>

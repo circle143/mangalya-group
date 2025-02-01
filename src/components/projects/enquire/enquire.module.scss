@@ -1,0 +1,29 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	display: grid;
+	gap: 2rem;
+
+	@include ab.info {
+		grid-template-columns: 2fr 3fr;
+	}
+
+	.form {
+		display: grid;
+		gap: 1rem;
+
+		align-content: space-between;
+
+		.button {
+			text-align: center;
+			button {
+				width: min(100%, 25rem);
+				padding-block: 0.5rem;
+
+				@include ab.info {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

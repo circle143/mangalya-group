@@ -48,18 +48,16 @@
 		}
 	}
 
-	&[data-variant="clear"] {
+	&[data-variant="dark"] {
 		--_bg: var(--clear);
-		--_c: #949494;
+		--_c: var(--light-grey);
 
 		&:hover,
 		&:focus-visible {
-			--_c: var(--white);
 			--_bg: var(--clear-hover);
 		}
 
 		&:active {
-			--_c: var(--white);
 			--_bg: var(--clear-active);
 		}
 	}

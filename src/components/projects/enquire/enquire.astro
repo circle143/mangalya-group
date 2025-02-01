@@ -1,0 +1,27 @@
+---
+interface Props {
+	project: string;
+	image: string;
+}
+
+const { project, image } = Astro.props;
+
+import InfoForm from "../info/info-form/info-form";
+import styles from "./enquire.module.scss";
+---
+
+<div id="enquire-now" class={`${styles.container} container`}>
+	<div class={styles.form}>
+		<InfoForm project={project} download={false} client:load />
+
+		<div class={styles.button}>
+			<button data-type="button" data-variant="dark"
+				>Download Brochure</button
+			>
+		</div>
+	</div>
+
+	<div class={styles.map}>
+		<img src={image} alt={project} />
+	</div>
+</div>

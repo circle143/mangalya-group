@@ -30,9 +30,9 @@
 	--error-active: hsl(from var(--error) h s calc(l - 10));
 
 	// clear
-	--clear: #e8e8e8;
-	--clear-active: var(--black);
-	--clear-hover: var(--black);
+	--clear: #303030;
+	--clear-active: hsl(from var(--clear) h s calc(l + 10));
+	--clear-hover: hsl(from var(--clear) h s calc(l - 10));
 
 	--linkedin: #0077b5;
 	--twitterx: #333333;
