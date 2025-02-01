@@ -1,0 +1,64 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	display: grid;
+	gap: 3rem;
+
+	@include ab.info {
+		grid-template-columns: 3fr 2fr;
+	}
+
+	h3 {
+		text-align: center;
+
+		@include ab.info {
+			text-align: left;
+		}
+	}
+
+	.info {
+		display: grid;
+		gap: 1rem;
+		align-content: start;
+
+		p {
+			text-align: center;
+			text-wrap: balance;
+
+			@include ab.info {
+				text-align: justify;
+			}
+		}
+	}
+
+	.form {
+		background-color: var(--light-grey);
+
+		padding-inline: clamp(1rem, 2vi, 1.5rem);
+		padding-block: clamp(1.5rem, 2.5vi, 2rem);
+		border-radius: 1rem;
+
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		display: grid;
+		gap: 1rem;
+
+		align-content: start;
+
+		form {
+			display: grid;
+			gap: 1rem;
+			grid-auto-rows: 1fr;
+
+			input {
+				padding-inline-start: 0.5rem;
+			}
+
+			> div {
+				text-align: center;
+			}
+		}
+	}
+}

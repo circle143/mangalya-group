@@ -1,46 +1,52 @@
 // sm 640
 @mixin screen-40 {
-  @media (min-width: 40em) {
-    @content;
-  }
+	@media (min-width: 40em) {
+		@content;
+	}
 }
 
 // md 768
 @mixin screen-48 {
-  @media (min-width: 48em) {
-    @content;
-  }
+	@media (min-width: 48em) {
+		@content;
+	}
 }
 
 // lg 1024
 @mixin screen-64 {
-  @media (min-width: 64em) {
-    @content;
-  }
+	@media (min-width: 64em) {
+		@content;
+	}
 }
 
 // xl 1280
 @mixin screen-80 {
-  @media (min-width: 80em) {
-    @content;
-  }
+	@media (min-width: 80em) {
+		@content;
+	}
 }
 
 // 2xl 1536
 @mixin screen-96 {
-  @media (min-width: 96em) {
-    @content;
-  }
+	@media (min-width: 96em) {
+		@content;
+	}
 }
 
 @mixin screen-50 {
-  @media (min-width: 50em) {
-    @content;
-  }
+	@media (min-width: 50em) {
+		@content;
+	}
 }
 
 @mixin nav {
-  @include screen-50 {
-    @content;
-  }
+	@include screen-50 {
+		@content;
+	}
+}
+
+@mixin info {
+	@include screen-50 {
+		@content;
+	}
 }

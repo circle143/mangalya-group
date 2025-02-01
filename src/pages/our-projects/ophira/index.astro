@@ -1,5 +1,6 @@
 ---
 import Carousel from "../../../components/carousel/carousel.astro";
+import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
 
@@ -9,10 +10,16 @@ const images = [
 	"/home/three.webp",
 	"/home/four.webp",
 ];
+
+const project = "Mangalya Ophira";
+const description =
+	"Mangalya Novena green, Noida Extension could be a place, wherever fresh air caresses you, orning dew welcomes you, lovely landscapes greet you and luxurious green surroundings assist you unwind & rejuvenate. Having 20 acres of land with a 600 meter wide front, novena green includes a grand look whereas a 130 meter wide road permits trouble free connectivity to the NCR. Mangalya Novena green, Noida Extension could be a place, wherever fresh air caresses you, orning dew welcomes you, lovely landscapes greet you and luxurious green surroundings assist you unwind & rejuvenate. Having 20 acres of land with a 600 meter wide front, novena green includes a grand look whereas a 130 meter wide road permits trouble free connectivity to the NCR.";
 ---
 
 <Layout title="Mangalya Group - Ophira">
 	<Carousel images={images} />
 
-	<Logo logo="/projects/ophira.svg" project="Ophira" />
+	<Logo logo="/projects/ophira.svg" project={project} />
+
+	<Info project={project} description={description} />
 </Layout>
