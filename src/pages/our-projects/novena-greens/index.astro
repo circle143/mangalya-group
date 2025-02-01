@@ -1,0 +1,15 @@
+---
+import Carousel from "../../../components/carousel/carousel.astro";
+import Layout from "../../../layouts/Layout.astro";
+
+const images = [
+	"/home/one.webp",
+	"/home/two.webp",
+	"/home/three.webp",
+	"/home/four.webp",
+];
+---
+
+<Layout title="Mangalya Group - Novena Greens">
+	<Carousel images={images} />
+</Layout>
