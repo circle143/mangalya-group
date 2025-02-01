@@ -4,17 +4,21 @@ import styles from "./footer.module.scss";
 import { Icon } from "astro-icon/components";
 
 const importantLinks = [
-	{ text: "Important Notices", link: "/important-notices" },
-	{ text: "Media", link: "/about-su/media" },
 	{ text: "Blogs", link: "/about-us/blogs" },
 	{ text: "Contact Us", link: "/contact-us" },
-	{ text: "Work With Us", link: "/work-with-us" },
+	{ text: "Work With Us", link: "/career" },
 	{ text: "Privacy & Policy", link: "/privacy-policy" },
 	{ text: "Terms & Conditions", link: "/terms-conditions" },
 	{ text: "Sitemap", link: "/sitemap" },
 ];
 
 const properties = [
+	{
+		name: "Anant Horizon",
+		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
+		link: "our-projects/anant-horizon",
+		image: "/anant.png",
+	},
 	{
 		name: "Novena Greens",
 		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
@@ -26,12 +30,6 @@ const properties = [
 		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
 		link: "our-projects/ophira",
 		image: "/ophira.png",
-	},
-	{
-		name: "Anant Horizon",
-		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
-		link: "our-projects/anant-horizon",
-		image: "/anant.png",
 	},
 ];
 
@@ -46,7 +44,12 @@ const social = {
 <footer class={styles.footer}>
 	<div class={`container ${styles.footer_items}`}>
 		<div class={styles.logo}>
-			<img src="logo.png" alt="mangalya group" width="200" height="100" />
+			<img
+				src="/logo.png"
+				alt="mangalya group"
+				width="200"
+				height="100"
+			/>
 		</div>
 
 		<div class={styles.links}>
