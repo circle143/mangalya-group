@@ -1,0 +1,28 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	display: grid;
+	gap: 1.5rem;
+
+	h3 {
+		font-size: 1.75rem;
+		text-align: center;
+	}
+
+	.item {
+		display: grid;
+		gap: 2rem;
+
+		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
+		img {
+			width: 100%;
+			object-fit: cover;
+			height: auto;
+		}
+	}
+
+	.button {
+		text-align: center;
+	}
+}

@@ -2,6 +2,7 @@
 import Carousel from "../../../components/carousel/carousel.astro";
 import Amenities from "../../../components/projects/amenities/amenities.astro";
 import Enquire from "../../../components/projects/enquire/enquire.astro";
+import FloorPlan from "../../../components/projects/floor-plan/floor-plan.astro";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -71,6 +72,15 @@ const aminitiesItem = [
 ];
 
 const map = "/projects/location/ophira.png";
+
+const floorPlans = [
+	"/projects/floor-plan/ophira/one.png",
+	"/projects/floor-plan/ophira/two.png",
+	"/projects/floor-plan/ophira/three.png",
+	"/projects/floor-plan/ophira/four.png",
+	"/projects/floor-plan/ophira/five.png",
+	"/projects/floor-plan/ophira/six.png",
+];
 ---
 
 <Layout title="Mangalya Group - Ophira">
@@ -79,6 +89,8 @@ const map = "/projects/location/ophira.png";
 	<Logo logo="/projects/ophira.svg" project={project} />
 
 	<Info project={project} description={description} />
+
+	<FloorPlan project={project} items={floorPlans} />
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
 

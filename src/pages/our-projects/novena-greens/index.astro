@@ -6,6 +6,7 @@ import Enquire from "../../../components/projects/enquire/enquire.astro";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
+import FloorPlan from "../../../components/projects/floor-plan/floor-plan.astro";
 
 const images = [
 	"/home/one.webp",
@@ -72,6 +73,15 @@ const aminitiesItem = [
 ];
 
 const map = "/projects/location/novena.png";
+
+const floorPlans = [
+	"/projects/floor-plan/novena/one.png",
+	"/projects/floor-plan/novena/two.png",
+	"/projects/floor-plan/novena/three.png",
+	"/projects/floor-plan/novena/four.png",
+	"/projects/floor-plan/novena/five.png",
+	"/projects/floor-plan/novena/six.png",
+];
 ---
 
 <Layout title="Mangalya Group - Novena Greens">
@@ -80,6 +90,8 @@ const map = "/projects/location/novena.png";
 	<Logo logo="/projects/novena.svg" project={project} />
 
 	<Info project={project} description={description} />
+
+	<FloorPlan project={project} items={floorPlans} />
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
 

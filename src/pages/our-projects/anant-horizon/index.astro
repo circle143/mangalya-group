@@ -2,6 +2,7 @@
 import Carousel from "../../../components/carousel/carousel.astro";
 import Amenities from "../../../components/projects/amenities/amenities.astro";
 import Enquire from "../../../components/projects/enquire/enquire.astro";
+import FloorPlan from "../../../components/projects/floor-plan/floor-plan.astro";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -70,6 +71,15 @@ const aminitiesItem = [
 ];
 
 const map = "/projects/location/anant.png";
+
+const floorPlans = [
+	"/projects/floor-plan/anant/one.png",
+	"/projects/floor-plan/anant/two.png",
+	"/projects/floor-plan/anant/three.png",
+	"/projects/floor-plan/anant/four.png",
+	"/projects/floor-plan/anant/five.png",
+	"/projects/floor-plan/anant/six.png",
+];
 ---
 
 <Layout title="Mangalya Group - Anant Horizon">
@@ -78,6 +88,8 @@ const map = "/projects/location/anant.png";
 	<Logo logo="/projects/anant.svg" project={project} />
 
 	<Info project={project} description={description} />
+
+	<FloorPlan project={project} items={floorPlans} />
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
 

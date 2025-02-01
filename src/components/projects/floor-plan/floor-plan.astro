@@ -1,0 +1,30 @@
+---
+interface Props {
+	items: string[];
+	project: string;
+}
+
+const { items, project } = Astro.props;
+
+import styles from "./floor-plan.module.scss";
+---
+
+<div id="floor-plan" class={`container ${styles.container}`}>
+	<h3>Floor Plan</h3>
+
+	<div class={styles.item}>
+		{
+			items.map((item) => {
+				return (
+					<div class={styles.image}>
+						<img src={item} alt={project} />
+					</div>
+				);
+			})
+		}
+	</div>
+
+	<div class={styles.button}>
+		<button data-type="button" data-variant="dark">Know More</button>
+	</div>
+</div>
