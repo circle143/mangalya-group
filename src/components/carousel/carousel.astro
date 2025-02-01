@@ -1,0 +1,30 @@
+---
+import { imageConfig } from "astro:assets";
+import styles from "./carousel.module.scss";
+
+interface Props {
+	images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class={styles.hero}>
+	<div id="embla" class={styles.image}>
+		<div class={styles.embla__viewport} id="embla__viewport">
+			<div class={styles.embla__container}>
+				{
+					images.map((item) => {
+						return (
+							<div class={styles.embla__slide}>
+								<img src={item} alt="" />
+							</div>
+						);
+					})
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../scripts/carousel.ts"></script>

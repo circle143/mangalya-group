@@ -1,0 +1,52 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	display: grid;
+	gap: clamp(3em, 4vi, 4em);
+
+	.info {
+		font-size: 1.25rem;
+		font-weight: 500;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	.project {
+		display: grid;
+		gap: 1rem;
+
+		.project_items {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+			gap: 1rem;
+
+			.item {
+				display: grid;
+				gap: 1rem;
+
+				.item_image {
+					img {
+						width: 100%;
+						height: auto;
+					}
+				}
+
+				.item_text {
+					display: grid;
+					gap: 0.5rem;
+
+					p {
+						color: #21212188;
+						font-weight: 500;
+					}
+
+					a {
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}

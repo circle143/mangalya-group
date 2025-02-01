@@ -1,0 +1,32 @@
+@use "/src/styles/abstracts" as ab;
+
+.hero {
+	--_h: calc(100dvh - 7rem);
+
+	.image {
+		--slide-size: 100%;
+		height: var(--_h);
+
+		img {
+			object-fit: cover;
+			width: calc(100 * var(--vw));
+			height: var(--_h);
+		}
+
+		.embla__viewport {
+			overflow: hidden;
+			height: 100%;
+		}
+
+		.embla__container {
+			display: flex;
+			touch-action: pan-y pinch-zoom;
+			height: 100%;
+		}
+		.embla__slide {
+			transform: translate3d(0, 0, 0);
+			flex: 0 0 var(--slide-size);
+			min-width: 0;
+		}
+	}
+}

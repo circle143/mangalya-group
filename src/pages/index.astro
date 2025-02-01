@@ -1,5 +1,21 @@
 ---
+import Carousel from "../components/carousel/carousel.astro";
+import Form from "../components/home/form/form";
+import Home from "../components/home/home.astro";
 import Layout from "../layouts/Layout.astro";
+
+const images = [
+	"/home/one.webp",
+	"/home/two.webp",
+	"/home/three.webp",
+	"/home/four.webp",
+];
 ---
 
-<Layout title="Mangalya Group - Home">hello</Layout>
+<Layout title="Mangalya Group - Home">
+	<Carousel images={images} />
+
+	<Home />
+
+	<Form client:load />
+</Layout>

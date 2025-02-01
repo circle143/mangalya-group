@@ -1,0 +1,117 @@
+---
+import styles from "./home.module.scss";
+
+const ongoing = [
+	{
+		image: "/home/cards/novena.png",
+		heading: "Novena Greens",
+		description:
+			"Open area with landscaping parks, 24 hours power backup, Ample covered parking space, Flower Garden and zen garden, Swimming pool and kids splash pool and more",
+		linkText: "Read more →",
+		link: "/our-projects/novena-greens",
+	},
+	{
+		image: "/home/cards/anant.png",
+		heading: "Anant Horizon",
+		description:
+			"Open area with landscaping parks, 24 hours power backup, Ample covered parking space, Flower Garden and zen garden, Swimming pool and kids splash pool and more",
+		linkText: "Read more →",
+		link: "/our-projects/anant-horizon",
+	},
+];
+
+const delivered = [
+	{
+		heading: "Ophira Greens",
+		image: "/home/cards/ophira.png",
+		description:
+			"Open area with landscaping parks, 24 hours power backup, Ample covered parking space, Flower Garden and sun garden, Swimming pool and kids splash pool and more",
+		linkText: "Read more →",
+		link: "/our-projects/ophira",
+	},
+];
+---
+
+<div class={`container ${styles.container}`}>
+	<p class={styles.info}>
+		At Mangalya Group, we take pride in shaping vibrant communities. From
+		thoughtfully designed neighborhoods to elegant high-rise developments,
+		our customer-first approach ensures the creation of residences that set
+		new benchmarks for quality and longevity, standing the test of time and
+		enriching lives for generations.
+	</p>
+
+	<div class={styles.project}>
+		<h3>Ongoing Projects</h3>
+
+		<div class={styles.project_items}>
+			{
+				ongoing.map((item) => {
+					return (
+						<div class={styles.item}>
+							<div class={styles.item_image}>
+								<img
+									src={item.image}
+									alt={item.heading}
+									width="150"
+									height="300"
+								/>
+							</div>
+
+							<div class={styles.item_text}>
+								<h4>{item.heading}</h4>
+								<p>{item.description}</p>
+								<div class={styles.item_link}>
+									<a
+										data-type="link"
+										data-variant="normal"
+										href={item.link}
+									>
+										{item.linkText}
+									</a>
+								</div>
+							</div>
+						</div>
+					);
+				})
+			}
+		</div>
+	</div>
+
+	<div class={styles.project}>
+		<h3>Deliverd Projects</h3>
+
+		<div class={styles.project_items}>
+			{
+				delivered.map((item) => {
+					return (
+						<div class={styles.item}>
+							<div class={styles.item_image}>
+								<img
+									src={item.image}
+									alt={item.heading}
+									width="150"
+									height="300"
+								/>
+							</div>
+
+							<div class={styles.item_text}>
+								<h4>{item.heading}</h4>
+								<p>{item.description}</p>
+								<div class={styles.item_link}>
+									<a
+										data-type="link"
+										data-variant="normal"
+										href={item.link}
+									>
+										{item.linkText}
+									</a>
+								</div>
+							</div>
+						</div>
+					);
+				})
+			}
+		</div>
+	</div>
+</div>

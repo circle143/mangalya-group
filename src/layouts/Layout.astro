@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+let bottomPadding = title != "Mangalya Group - Home";
 
 import Nav from "../components/nav/nav.astro";
 import Footer from "../components/footer/footer.astro";
@@ -25,7 +26,7 @@ import Footer from "../components/footer/footer.astro";
 	<body>
 		<div>
 			<Nav />
-			<main>
+			<main data-padding={bottomPadding}>
 				<slot />
 			</main>
 			<Footer />
@@ -49,9 +50,12 @@ import Footer from "../components/footer/footer.astro";
 			display: grid;
 			gap: clamp(3em, 4vi, 4em);
 
-			padding-block-end: clamp(3em, 4vi, 4em);
 			height: 100%;
 			flex-grow: 1;
+		}
+
+		main[data-padding="true"] {
+			padding-block-end: clamp(3em, 4vi, 4em);
 		}
 	</style>
 </html>

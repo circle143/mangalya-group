@@ -1,0 +1,40 @@
+@use "/src/styles/abstracts" as ab;
+
+.form {
+	background-color: #fafafa;
+	padding-block: 2.5rem;
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	.container {
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	form {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(1, 1fr);
+		align-items: stretch;
+		grid-auto-rows: 1fr;
+
+		@include ab.screen-48 {
+			grid-template-columns: repeat(3, 1fr);
+
+			.more {
+				grid-column: span 2;
+			}
+		}
+
+		input {
+			width: 100%;
+			padding-inline-start: 0.25rem;
+		}
+
+		button {
+			border-radius: 0.25rem;
+		}
+	}
+}
