@@ -1,0 +1,28 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	.logo {
+		img {
+			margin-inline: auto;
+		}
+	}
+
+	display: grid;
+	gap: 1.5rem;
+
+	.links {
+		display: none;
+		justify-content: space-between;
+
+		@include ab.screen-40 {
+			display: flex;
+		}
+
+		a {
+			font-weight: 700;
+			color: var(--grey-text);
+
+			font-size: 1.125rem;
+		}
+	}
+}

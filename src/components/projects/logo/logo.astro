@@ -1,0 +1,53 @@
+---
+interface Props {
+	logo: string;
+	project: string;
+}
+
+const { logo, project } = Astro.props;
+
+import styles from "./logo.module.scss";
+
+const links = [
+	{
+		name: "Overview",
+		identifier: "overview",
+	},
+	{
+		name: "Floor Plan",
+		identifier: "floor-plan",
+	},
+	{
+		name: "Download Brochure",
+		identifier: "download-brochure",
+	},
+	{
+		name: "Enquire Now",
+		identifier: "enquire-now",
+	},
+];
+---
+
+<div class={`container ${styles.container}`}>
+	<div class={styles.logo}>
+		<img src={logo} alt={project} />
+	</div>
+
+	<div class={styles.links}>
+		{
+			links.map((item) => {
+				return (
+					<div class={styles.item}>
+						<a
+							href={`#${item.identifier}`}
+							data-type="link"
+							data-variant="normal"
+						>
+							{item.name}
+						</a>
+					</div>
+				);
+			})
+		}
+	</div>
+</div>

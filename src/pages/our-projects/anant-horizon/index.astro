@@ -1,5 +1,6 @@
 ---
 import Carousel from "../../../components/carousel/carousel.astro";
+import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
 
 const images = [
@@ -12,4 +13,6 @@ const images = [
 
 <Layout title="Mangalya Group - Anant Horizon">
 	<Carousel images={images} />
+
+	<Logo logo="/projects/anant.svg" project="Anant Horizon" />
 </Layout>
