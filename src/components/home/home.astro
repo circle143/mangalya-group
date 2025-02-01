@@ -1,4 +1,5 @@
 ---
+import { Modal, ModalBody } from "free-astro-components";
 import styles from "./home.module.scss";
 
 const ongoing = [
@@ -114,4 +115,96 @@ const delivered = [
 			}
 		</div>
 	</div>
+
+	<Modal id="disclaimer-modal" size="4xl">
+		<ModalBody>
+			<div class={styles.modal}>
+				<h3>DISCLAIMER</h3>
+				<p>
+					This is to inform users/customers that www.mangalyagroup.in
+					is the only official website of Mangalya Group.
+					Users/customers are advised not to rely on information
+					presented on other websites that may appear similar to the
+					Company’s official website. Such websites may contain
+					misleading or false information, and users/customers may
+					suffer losses if they rely on such sources. If
+					users/customers come across any such websites misusing the
+					Company’s name/logo or providing information about the
+					Company or its projects, they are encouraged to contact us
+					at info@mangalyagroup.in so appropriate action can be taken.
+				</p>
+				<p>
+					This website is for general guidance only. It does not
+					constitute part of any offer or contract. Design and
+					specifications are subject to change without prior notice.
+					Computer-generated images are artistic impressions and
+					indicative of the actual designs. The particulars contain
+					details of projects and developments undertaken by the
+					Company, including banners/posters of the projects. All
+					content is subject to change in accordance with the
+					stipulations/recommendations provided under the Real Estate
+					(Regulation and Development) Act, 2016 (“RERA”) and
+					applicable rules. Therefore, users are advised to verify all
+					details, including areas, amenities, services, terms of
+					sales, payments, and other relevant information, with the
+					Company’s sales team before making any decision to purchase
+					any unit(s) in the said projects.
+				</p>
+				<p>
+					The Company shall not, under any circumstances, be held
+					liable for any expenses, losses, or damages, including
+					without limitation indirect or consequential losses or
+					damages, arising out of the use of this website. Users are
+					solely responsible for any reliance placed on the
+					information provided herein.
+				</p>
+				<h3>PUBLIC NOTICE</h3>
+				<p>
+					To Whomsoever It May Concern:<br /> This is to bring to your
+					notice that in compliance with the Real Estate (Regulation and
+					Development) Act, 2016 (“RERA”), Mangalya Group (“the Company”)
+					strictly prohibits the promotion, marketing, or sale of unregistered
+					projects. Should any broker or channel partner engage in the
+					promotion or sale of unregistered projects on behalf of the Company,
+					the Company disclaims all liability in this regard.
+				</p>
+				<p>
+					The Company shall not, under any circumstances, be held
+					liable for claims made by individuals seeking cancellations
+					or refunds due to inaccuracies provided by such brokers or
+					channel partners, even if efforts have been made to ensure
+					accuracy. The Company shall also not be liable for any
+					expenses, losses, or damages—whether direct, indirect, or
+					consequential—arising from such unauthorized promotions,
+					marketing, or sale of unregistered projects.
+				</p>
+				<div>
+					<button
+						data-type="button"
+						id="disclaimer-modal-close"
+						data-variant="dark">I agree</button
+					>
+				</div>
+			</div>
+		</ModalBody>
+	</Modal>
 </div>
+
+<script>
+	import { openModal, closeModal } from "free-astro-components";
+
+	document.addEventListener("astro:page-load", () => {
+		const modal = document.querySelector("#disclaimer-modal");
+		const button = document.querySelector("#disclaimer-modal-close");
+
+		button?.addEventListener("click", () => {
+			sessionStorage.setItem("disclaimer", "abc");
+			closeModal(modal);
+		});
+
+		let item = sessionStorage.getItem("disclaimer");
+		if (!item) {
+			openModal(modal);
+		}
+	});
+</script>

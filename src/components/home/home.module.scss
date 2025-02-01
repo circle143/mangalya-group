@@ -50,3 +50,17 @@
 		}
 	}
 }
+
+.modal {
+	display: grid;
+	gap: 1.5rem;
+
+	h3 {
+		font-size: 1.25rem;
+		text-align: center;
+	}
+
+	> div {
+		text-align: center;
+	}
+}
