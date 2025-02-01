@@ -1,0 +1,148 @@
+// button
+[data-type="button"] {
+  --_c: var(--text-button);
+
+  border-radius: 0.25rem;
+  border: 0;
+
+  padding-inline: 0.75rem;
+  padding-block: 0.4em;
+  font-weight: 500;
+
+  background-color: var(--_bg);
+  color: var(--_c);
+  transition: background-color 300ms ease;
+
+  display: inline-block;
+  font-size: clamp(1rem, 1.5vi, 1.25rem);
+
+  &:is(a) {
+    text-decoration-color: transparent;
+  }
+
+  &[data-variant="primary"] {
+    --_bg: var(--accent-primary);
+    --_c: var(--white);
+
+    &:hover,
+    &:focus-visible {
+      --_bg: var(--accent-primary-hover);
+    }
+
+    &:active {
+      --_bg: var(--accent-primary-active);
+    }
+  }
+
+  &[data-variant="error"] {
+    --_bg: var(--error);
+    --_c: var(--text-button-error);
+
+    &:hover,
+    &:focus-visible {
+      --_bg: var(--error-hover);
+    }
+
+    &:active {
+      --_bg: var(--error-active);
+    }
+  }
+
+  &[data-variant="clear"] {
+    --_bg: var(--clear);
+    --_c: #949494;
+
+    &:hover,
+    &:focus-visible {
+      --_c: var(--white);
+      --_bg: var(--clear-hover);
+    }
+
+    &:active {
+      --_c: var(--white);
+      --_bg: var(--clear-active);
+    }
+  }
+
+  &[data-load="true"] {
+    width: 4.65em;
+    height: 2em;
+  }
+  &:disabled {
+    cursor: not-allowed;
+
+    --_bg: var(--disabled);
+
+    &:hover,
+    &:focus-visible {
+      --_bg: var(--disabled);
+    }
+
+    &:active {
+      --_bg: var(--disabled);
+    }
+  }
+}
+
+// link
+[data-type="link"] {
+  color: var(--_c);
+  text-decoration-color: transparent;
+  font-weight: 500;
+
+  font-size: clamp(0.875rem, 1.5vi, 1.125rem);
+
+  transition:
+    color 300ms ease,
+    text-decoration-color 300ms ease;
+
+  &:is(button) {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+
+    text-decoration: underline transparent;
+    cursor: pointer;
+  }
+
+  &[data-variant="primary"] {
+    --_c: var(--accent);
+
+    &:hover,
+    &:focus-visible {
+      --_c: var(--accent-hover);
+    }
+
+    &:active {
+      --_c: var(--accent-active);
+    }
+  }
+
+  &[data-variant="error"] {
+    --_c: var(--error);
+
+    &:hover,
+    &:focus-visible {
+      --_c: var(--error-hover);
+    }
+
+    &:active {
+      --_c: var(--error-active);
+    }
+  }
+
+  &[data-active="true"] {
+    --_c: var(--accent-secondary);
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    text-decoration-color: currentColor;
+  }
+
+  &:is(button:disabled) {
+    cursor: not-allowed;
+    // text-decoration-color: transparent;
+  }
+}

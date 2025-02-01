@@ -1,0 +1,121 @@
+@use "/src/styles/abstracts" as ab;
+
+.footer {
+	background-color: var(--black);
+	color: var(--white);
+
+	padding-block: clamp(2rem, 4vi, 3rem);
+	display: grid;
+	gap: 2rem;
+
+	.copyright {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.footer_items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+		gap: 3rem;
+
+		.logo {
+			img {
+				width: auto;
+				height: auto;
+
+				max-width: 12.5rem;
+			}
+		}
+
+		.links {
+			display: grid;
+			align-content: start;
+			gap: 0.5rem;
+
+			font-size: 1rem;
+
+			a {
+				font-size: 0.975rem;
+			}
+		}
+
+		.projects {
+			display: grid;
+			gap: 1rem;
+
+			.project_items {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.item {
+				display: flex;
+				gap: 1rem;
+
+				img {
+					width: auto;
+					height: auto;
+				}
+
+				.info {
+					font-size: 0.875rem;
+				}
+			}
+		}
+
+		.social {
+			display: grid;
+			gap: 0.25rem;
+			align-content: start;
+
+			.social_items {
+				margin-block-start: 0.75rem;
+
+				display: flex;
+				gap: clamp(1em, 1.5vi, 1.25em);
+
+				a {
+					--_c: var(--text);
+					--_bg: var(--white);
+
+					font-size: clamp(1rem, 2vi, 1.5rem);
+					width: clamp(1.8rem, 3vi, 2.5rem);
+					aspect-ratio: 1;
+
+					color: var(--_c);
+					background-color: var(--_bg);
+					border-radius: 50%;
+
+					padding: 0.25em;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					transition:
+						color 300ms,
+						background-color 300ms;
+
+					&:hover {
+						--_c: var(--white);
+						&.facebook {
+							--_bg: var(--facebook);
+						}
+
+						&.twitter {
+							--_bg: var(--twitterx);
+						}
+
+						&.instagram {
+							background: var(--instagram);
+						}
+
+						&.linkedin {
+							--_bg: var(--linkedin);
+						}
+					}
+				}
+			}
+		}
+	}
+}

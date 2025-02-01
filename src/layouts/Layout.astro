@@ -1,0 +1,60 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/main.scss";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import Nav from "../components/nav/nav.astro";
+import Footer from "../components/footer/footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+
+		<ClientRouter />
+	</head>
+	<body>
+		<div>
+			<Nav />
+			<main>
+				<slot />
+			</main>
+            <Footer />
+		</div>
+	</body><script>
+		document.addEventListener("astro:page-load", () => {
+			new ResizeObserver(() => {
+				let vw = document.documentElement.clientWidth / 100;
+				document.documentElement.style.setProperty("--vw", `${vw}px`);
+			}).observe(document.documentElement);
+		});
+	</script>
+	<style>
+		div {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vb;
+
+		}
+
+		main {
+			display: grid;
+			gap: clamp(3em, 4vi, 4em);
+
+            /* padding-block: clamp(3em, 4vi, 4em); */
+            height: 100%;
+            flex-grow: 1;
+		}
+	</style>
+</html>
+
+<style is:global></style>

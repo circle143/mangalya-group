@@ -1,0 +1,196 @@
+---
+import { phoneNumber } from "../../data/contact";
+import styles from "./nav.module.scss";
+import { Icon } from "astro-icon/components";
+
+const items = [
+	{
+		text: "About us",
+		link: "/about-us/",
+		sublink: [
+			{
+				text: "Media",
+				link: "/about-us/media",
+			},
+			{
+				text: "Blogs",
+				link: "/about-us/blogs",
+			},
+		],
+	},
+	{
+		text: "Our Projects",
+		link: "/our-projects/",
+		sublink: [
+			{
+				text: "Novena Greens",
+				link: "/our-projects/novena-greens",
+			},
+			{
+				text: "Ophira",
+				link: "/our-projects/ophira",
+			},
+			{
+				text: "Anant Horizon",
+				link: "/our-projects/anant-horizon",
+			},
+		],
+	},
+	{
+		text: "Media",
+		link: "/media",
+	},
+	{
+		text: "Carrer",
+		link: "/carrer",
+	},
+];
+---
+
+<nav class={styles.nav}>
+	<div class={`container ${styles.container}`}>
+		<div class={styles.nav_logo}>
+			<div class={styles.control}>
+				<input id="nav" type="checkbox" />
+				<label for="nav">
+					<span></span>
+				</label>
+			</div>
+
+			<div class={styles.logo}>
+				<a href="/">
+					<img
+						src="/logo.svg"
+						alt="Mangalya group"
+						width="150"
+						height="60"
+					/>
+				</a>
+			</div>
+
+			<div class={styles.main}>
+				<ul class={styles.links}>
+					{
+						items.map((item) => {
+							const { link, text } = item;
+							const hasSubLink = item.sublink !== undefined;
+
+							if (hasSubLink) {
+								return (
+									<li class={styles.link_item}>
+										<p
+											data-path={link}
+											class={`link ${styles.link}`}
+										>
+											{text}
+											<Icon name="fa6-solid:angle-down" />
+										</p>
+
+										<div class={styles.sublinks}>
+											<ul>
+												{item.sublink.map(
+													({ text, link }) => {
+														return (
+															<li
+																class={
+																	styles.sublink_item
+																}
+															>
+																<a
+																	data-path={
+																		link
+																	}
+																	class={`sublink ${styles.sublink}`}
+																	href={link}
+																>
+																	{text}
+																</a>
+															</li>
+														);
+													}
+												)}
+											</ul>
+										</div>
+									</li>
+								);
+							}
+
+							return (
+								<li class={styles.link_item}>
+									<a
+										data-path={link}
+										class={`link ${styles.link}`}
+										href={link}
+									>
+										{text}
+									</a>
+								</li>
+							);
+						})
+					}
+
+					<li class={styles.nav_logo}>
+						<img
+							src="/logo.svg"
+							alt="mangalya group"
+							width="200"
+							height="60"
+						/>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class={styles.action}>
+			<div class={styles.expert}>
+				<div class={styles.icon}>
+					<Icon name="fa6-solid:phone" />
+				</div>
+				<div class={styles.call}>
+					<div class={styles.header}>Talk to an expert</div>
+
+					<a
+						href={`tel:${phoneNumber}`}
+						data-type="link"
+						data-variant="normal">{phoneNumber}</a
+					>
+				</div>
+			</div>
+
+			<a
+				href={`tel:${phoneNumber}`}
+				data-type="button"
+				data-variant="primary">ENQUIRE NOW</a
+			>
+		</div>
+	</div>
+</nav>
+
+<script>
+	import styles from "./nav.module.scss";
+
+	document.addEventListener("astro:page-load", () => {
+		const nav = document.getElementsByTagName("nav");
+		const navLinks = nav[0].querySelectorAll(".link");
+		const sublinks = nav[0].querySelectorAll(".sublink");
+
+		const currentPath = window.location.pathname;
+		navLinks.forEach((link) => {
+			const linkPath = link.getAttribute("data-path");
+			if (!linkPath) return;
+
+			if (currentPath === linkPath) {
+				link.classList.add(styles.active);
+			}
+		});
+
+		sublinks.forEach((link) => {
+			const linkPath = link.getAttribute("data-path");
+			if (!linkPath) return;
+
+			if (currentPath === linkPath) {
+				link.classList.add(styles.active);
+			}
+		});
+	});
+</script>

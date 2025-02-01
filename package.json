@@ -1,0 +1,28 @@
+{
+  "name": "mangalya-main",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.0",
+    "@iconify-json/fa6-brands": "^1.1.20",
+    "@iconify-json/fa6-regular": "^1.1.20",
+    "@iconify-json/fa6-solid": "^1.1.22",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "astro": "^5.2.3",
+    "astro-icon": "^1.1.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.83.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

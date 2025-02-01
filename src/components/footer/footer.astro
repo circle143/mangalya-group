@@ -1,0 +1,172 @@
+---
+import { email, phoneNumber } from "../../data/contact";
+import styles from "./footer.module.scss";
+import { Icon } from "astro-icon/components";
+
+const importantLinks = [
+	{ text: "Important Notices", link: "/important-notices" },
+	{ text: "Media", link: "/about-su/media" },
+	{ text: "Blogs", link: "/about-us/blogs" },
+	{ text: "Contact Us", link: "/contact-us" },
+	{ text: "Work With Us", link: "/work-with-us" },
+	{ text: "Privacy & Policy", link: "/privacy-policy" },
+	{ text: "Terms & Conditions", link: "/terms-conditions" },
+	{ text: "Sitemap", link: "/sitemap" },
+];
+
+const properties = [
+	{
+		name: "Novena Greens",
+		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
+		link: "our-projects/novena-greens",
+		image: "novena.png",
+	},
+	{
+		name: "Ophira",
+		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
+		link: "our-projects/ophira",
+		image: "ophira.png",
+	},
+	{
+		name: "Anant Horizon",
+		address: "Plot No. 16F, Sector-1, Greater Noida (West), (U.P.)",
+		link: "our-projects/anant-horizon",
+		image: "anant.png",
+	},
+];
+
+const social = {
+	facebook: "https://facebook.com",
+	twitter: "https://twitter.com",
+	linkedin: "https://linkedin.com",
+	instagram: "https://instagram.com",
+};
+---
+
+<footer class={styles.footer}>
+	<div class={`container ${styles.footer_items}`}>
+		<div class={styles.logo}>
+			<img src="logo.png" alt="mangalya group" width="200" height="100" />
+		</div>
+
+		<div class={styles.links}>
+			<h3>Important Links</h3>
+
+			<div class={styles.link_items}>
+				{
+					importantLinks.map((item) => {
+						return (
+							<p>
+								<a
+									href={item.link}
+									data-type="link"
+									data-variant="normal"
+								>
+									{item.text}
+								</a>
+							</p>
+						);
+					})
+				}
+			</div>
+		</div>
+
+		<div class={styles.projects}>
+			<h3>Latest Project</h3>
+			<div class={styles.project_items}>
+				{
+					properties.map((item) => {
+						return (
+							<div class={styles.item}>
+								<div class={styles.avtar}>
+									<img
+										src={item.image}
+										width="56"
+										height="56"
+									/>
+								</div>
+								<div class={styles.info}>
+									<p>
+										<a
+											href={item.link}
+											data-type="link"
+											data-variant="normal"
+										>
+											{item.name}
+										</a>
+									</p>
+									<p>{item.address}</p>
+								</div>
+							</div>
+						);
+					})
+				}
+			</div>
+		</div>
+
+		<div class={styles.social}>
+			<h3>Helpline</h3>
+
+			<div>
+				<a
+					href={`tel:${phoneNumber}`}
+					data-type="link"
+					data-variant="normal">{phoneNumber}</a
+				>
+			</div>
+			<div>
+				<a
+					href={`mailto:${email}`}
+					data-type="link"
+					data-variant="normal">{email}</a
+				>
+			</div>
+			<div class={styles.social_items}>
+				<a
+					href={social.facebook}
+					target="_blank"
+					class={styles.facebook}
+				>
+					<Icon name="fa6-brands:facebook-f" />
+				</a>
+				<a
+					href={social.instagram}
+					target="_blank"
+					class={styles.instagram}
+				>
+					<Icon name="fa6-brands:instagram" />
+				</a>
+				<a href={social.twitter} target="_blank" class={styles.twitter}>
+					<Icon name="fa6-brands:x-twitter" />
+				</a>
+
+				<a
+					href={social.linkedin}
+					target="_blank"
+					class={styles.linkedin}
+				>
+					<Icon name="fa6-brands:linkedin-in" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class={`container ${styles.copyright}`}>
+		<p class={styles.info}>
+			The Pictures and details are tentative depictions only. This is not
+			a legal offer. Mentioned teatures are indicative and are subject to
+			change without any prior notice as may be decided by the company or
+			competent authority.
+		</p>
+
+		<p class={styles.text}>
+			© Copyright Mangalya Group Design & Development By <a
+				data-type="link"
+				data-variant="normal"
+				href="https://circledigital.in"
+				target="_blank"
+				>Circle Digital Solutions
+			</a>
+		</p>
+	</div>
+</footer>
