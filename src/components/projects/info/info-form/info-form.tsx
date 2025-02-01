@@ -9,7 +9,7 @@ interface InfoFormProps {
 const InfoForm = ({ project, download }: InfoFormProps) => {
 	return (
 		<div className={styles.form}>
-			<h3>Enquire Now</h3>
+			<h3>{download ? "Download" : "Enquire Now"}</h3>
 
 			<form>
 				<input type="text" placeholder="Name" />

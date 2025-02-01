@@ -1,5 +1,7 @@
 ---
+import { Modal } from "free-astro-components";
 import { email, phoneNumber } from "../../data/contact";
+import InfoForm from "../projects/info/info-form/info-form";
 import styles from "./footer.module.scss";
 import { Icon } from "astro-icon/components";
 
@@ -58,17 +60,30 @@ const social = {
 			<div class={styles.link_items}>
 				{
 					importantLinks.map((item) => {
-						return (
-							<p>
-								<a
-									href={item.link}
-									data-type="link"
-									data-variant="normal"
-								>
-									{item.text}
-								</a>
-							</p>
-						);
+						if (item.text != "Contact Us")
+							return (
+								<p>
+									<a
+										href={item.link}
+										data-type="link"
+										data-variant="normal"
+									>
+										{item.text}
+									</a>
+								</p>
+							);
+						else {
+							return (
+								<p>
+									<button
+										data-type="link"
+										data-variant="normal"
+									>
+										{item.text}
+									</button>
+								</p>
+							);
+						}
 					})
 				}
 			</div>
