@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./info-form.module.scss";
 import { Icon } from "astro-icon/components";
+import Loader from "../../../Loader/Loader";
 
 export enum Title {
 	enquire = "Enquire Now",
@@ -23,9 +24,12 @@ interface InfoFormProps {
 
 const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 	const buttonRef = useRef<HTMLButtonElement | null>(null);
+	const [error, setError] = useState<string | null>(null);
+	const [submitting, setSubmitting] = useState<boolean>(false);
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		if (submitting) return;
 
 		// on success
 		closeModalIfOpen();
@@ -49,6 +53,7 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 
 					{modal && (
 						<button
+							disabled={submitting}
 							className="modal-close-trigger"
 							data-type="link"
 							data-variant="normal"
@@ -64,19 +69,41 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 				</div>
 
 				<form onSubmit={handleSubmit}>
-					<input type="text" placeholder="Name" />
+					<input
+						disabled={submitting}
+						type="text"
+						placeholder="Name"
+					/>
 
-					<input type="tel" placeholder="Ph. No." />
+					<input
+						disabled={submitting}
+						type="tel"
+						placeholder="Ph. No."
+					/>
 
-					<input type="email" placeholder="Email ID" />
+					<input
+						disabled={submitting}
+						type="email"
+						placeholder="Email ID"
+					/>
+
+					{error && <p className="error">{error}</p>}
 
 					<div>
 						<button
+							disabled={submitting}
 							data-type="button"
 							data-variant="primary"
 							type="submit"
+							data-submitting={submitting}
 						>
-							{title === Title.download ? "Download" : "Submit"}
+							{submitting ? (
+								<Loader variant="small" />
+							) : title === Title.download ? (
+								"Download"
+							) : (
+								"Submit"
+							)}
 						</button>
 					</div>
 				</form>

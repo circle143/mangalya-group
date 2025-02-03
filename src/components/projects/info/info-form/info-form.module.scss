@@ -40,6 +40,9 @@
 
 		> div {
 			text-align: center;
+			button[data-submitting="true"] {
+				padding-inline: 2rem;
+			}
 		}
 	}
 }
