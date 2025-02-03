@@ -1,12 +1,17 @@
 ---
 interface Props {
 	items: string[];
-	project: string;
+	projectName: string;
+	project: Project;
 }
 
-const { items, project } = Astro.props;
+const { items, projectName, project } = Astro.props;
 
+import { Title, type Project } from "../info/info-form/info-form";
+import InfoForm from "../info/info-form/info-form";
 import styles from "./floor-plan.module.scss";
+
+const modalId = `${project}-know-more-modal`;
 ---
 
 <div id="floor-plan" class={`container ${styles.container}`}>
@@ -17,7 +22,7 @@ import styles from "./floor-plan.module.scss";
 			items.map((item) => {
 				return (
 					<div class={styles.image}>
-						<img src={item} alt={project} />
+						<img src={item} alt={projectName} />
 					</div>
 				);
 			})
@@ -25,6 +30,15 @@ import styles from "./floor-plan.module.scss";
 	</div>
 
 	<div class={styles.button}>
-		<button data-type="button" data-variant="dark">Know More</button>
+		<button
+			data-type="button"
+			data-variant="dark"
+			class="modal-open-trigger"
+			data-modal-id={modalId}>Know More</button
+		>
 	</div>
+
+	<dialog id={modalId}>
+		<InfoForm project={project} title={Title.enquire} modal={true} />
+	</dialog>
 </div>

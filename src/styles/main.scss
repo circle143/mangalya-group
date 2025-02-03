@@ -97,13 +97,21 @@ h2 {
 }
 
 dialog {
+	--_w: 30rem;
+	--_padding: 0;
 	outline: none;
 	border: none;
 
 	border-radius: 0.75rem;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-	width: min(90%, var(--max-width));
+	width: min(90%, var(--_w));
+	padding: var(--_padding);
+
+	&[data-full] {
+		--_w: var(var(--max-width));
+		--_padding: 1rem;
+	}
 
 	&::backdrop {
 		backdrop-filter: blur(7.5px);

@@ -95,7 +95,11 @@ const floorPlans = [
 		description={description}
 	/>
 
-	<FloorPlan project={project} items={floorPlans} />
+	<FloorPlan
+		projectName={project}
+		project={Project.ophira}
+		items={floorPlans}
+	/>
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
 

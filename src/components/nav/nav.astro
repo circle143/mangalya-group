@@ -1,5 +1,6 @@
 ---
 import { phoneNumber } from "../../data/contact";
+import InfoForm, { Project, Title } from "../projects/info/info-form/info-form";
 import styles from "./nav.module.scss";
 import { Icon } from "astro-icon/components";
 
@@ -45,6 +46,8 @@ const items = [
 		link: "/career",
 	},
 ];
+
+const modalId = "nav-modal-id";
 ---
 
 <nav class={styles.nav}>
@@ -157,11 +160,22 @@ const items = [
 				</div>
 			</div>
 
-			<button data-type="button" data-variant="primary"
-				>ENQUIRE NOW</button
+			<button
+				data-type="button"
+				data-variant="primary"
+				class="modal-open-trigger"
+				data-modal-id={modalId}>ENQUIRE NOW</button
 			>
 		</div>
 	</div>
+
+	<dialog id={modalId}>
+		<InfoForm
+			project={Project.mangalya}
+			title={Title.enquire}
+			modal={true}
+		/>
+	</dialog>
 </nav>
 
 <script>

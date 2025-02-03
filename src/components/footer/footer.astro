@@ -1,6 +1,6 @@
 ---
 import { email, phoneNumber } from "../../data/contact";
-import InfoForm from "../projects/info/info-form/info-form";
+import InfoForm, { Project, Title } from "../projects/info/info-form/info-form";
 import styles from "./footer.module.scss";
 import { Icon } from "astro-icon/components";
 
@@ -40,6 +40,8 @@ const social = {
 	linkedin: "https://linkedin.com",
 	instagram: "https://instagram.com",
 };
+
+const modalId = "footer-contact-us";
 ---
 
 <footer class={styles.footer}>
@@ -77,6 +79,8 @@ const social = {
 									<button
 										data-type="link"
 										data-variant="normal"
+										class="modal-open-trigger"
+										data-modal-id={modalId}
 									>
 										{item.text}
 									</button>
@@ -186,4 +190,12 @@ const social = {
 			</a>
 		</p>
 	</div>
+
+	<dialog id={modalId}>
+		<InfoForm
+			project={Project.mangalya}
+			title={Title.contact}
+			modal={true}
+		/>
+	</dialog>
 </footer>

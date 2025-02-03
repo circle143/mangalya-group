@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { project, image } = Astro.props;
+
+const modalId = `${project}-download-brochure`;
 ---
 
 <div id="enquire-now" class={`${styles.container} container`}>
@@ -19,7 +21,9 @@ const { project, image } = Astro.props;
 			<button
 				id="download-brochure"
 				data-type="button"
-				data-variant="dark">Download Brochure</button
+				data-variant="dark"
+				class="modal-open-trigger"
+				data-modal-id={modalId}>Download Brochure</button
 			>
 		</div>
 	</div>
@@ -27,4 +31,8 @@ const { project, image } = Astro.props;
 	<div class={styles.map}>
 		<img src={image} alt={project} />
 	</div>
+
+	<dialog id={modalId}>
+		<InfoForm project={project} title={Title.download} modal={true} />
+	</dialog>
 </div>

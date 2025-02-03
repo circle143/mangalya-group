@@ -2,12 +2,16 @@ import React from "react";
 import styles from "./form.module.scss";
 
 const Form = () => {
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+	};
+
 	return (
 		<div className={styles.form}>
 			<div className={`container ${styles.container}`}>
 				<h3>Got some specific idea? We'd love to bring it to life</h3>
 
-				<form>
+				<form onSubmit={handleSubmit}>
 					<input type="text" placeholder="Name" />
 
 					<input type="tel" placeholder="Ph. No." />
