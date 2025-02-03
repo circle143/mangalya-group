@@ -1,15 +1,28 @@
 import React from "react";
 import styles from "./info-form.module.scss";
 
-interface InfoFormProps {
-	project: string;
-	download: boolean;
+export enum Title {
+	enquire = "Enquire Now",
+	download = "Download",
+	contact = "Contact Us",
 }
 
-const InfoForm = ({ project, download }: InfoFormProps) => {
+export enum Project {
+	mangalya = "mangalya-group",
+	novena = "novena-greens",
+	anant = "anant-horizon",
+	ophira = "ophira",
+}
+
+interface InfoFormProps {
+	project: Project;
+	title: Title;
+}
+
+const InfoForm = ({ project, title }: InfoFormProps) => {
 	return (
 		<div className={styles.form}>
-			<h3>{download ? "Download" : "Enquire Now"}</h3>
+			<h3>{title}</h3>
 
 			<form>
 				<input type="text" placeholder="Name" />
@@ -24,7 +37,7 @@ const InfoForm = ({ project, download }: InfoFormProps) => {
 						data-variant="primary"
 						type="submit"
 					>
-						{download ? "Download" : "Submit"}
+						{title === Title.download ? "Download" : "Submit"}
 					</button>
 				</div>
 			</form>

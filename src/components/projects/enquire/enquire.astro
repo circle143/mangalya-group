@@ -1,18 +1,19 @@
 ---
+import type { Project } from "../info/info-form/info-form";
+import InfoForm, { Title } from "../info/info-form/info-form";
+import styles from "./enquire.module.scss";
+
 interface Props {
-	project: string;
+	project: Project;
 	image: string;
 }
 
 const { project, image } = Astro.props;
-
-import InfoForm from "../info/info-form/info-form";
-import styles from "./enquire.module.scss";
 ---
 
 <div id="enquire-now" class={`${styles.container} container`}>
 	<div class={styles.form}>
-		<InfoForm project={project} download={false} client:load />
+		<InfoForm project={project} title={Title.enquire} client:load />
 
 		<div class={styles.button}>
 			<button

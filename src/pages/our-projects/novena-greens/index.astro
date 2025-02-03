@@ -7,6 +7,7 @@ import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
 import FloorPlan from "../../../components/projects/floor-plan/floor-plan.astro";
+import { Project } from "../../../components/projects/info/info-form/info-form";
 
 const images = [
 	"/home/one.webp",
@@ -89,11 +90,15 @@ const floorPlans = [
 
 	<Logo logo="/projects/novena.svg" project={project} />
 
-	<Info project={project} description={description} />
+	<Info
+		projectName={project}
+		project={Project.novena}
+		description={description}
+	/>
 
 	<FloorPlan project={project} items={floorPlans} />
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
 
-	<Enquire project={project} image={map} />
+	<Enquire project={Project.novena} image={map} />
 </Layout>

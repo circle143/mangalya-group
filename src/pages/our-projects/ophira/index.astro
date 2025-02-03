@@ -3,6 +3,7 @@ import Carousel from "../../../components/carousel/carousel.astro";
 import Amenities from "../../../components/projects/amenities/amenities.astro";
 import Enquire from "../../../components/projects/enquire/enquire.astro";
 import FloorPlan from "../../../components/projects/floor-plan/floor-plan.astro";
+import { Project } from "../../../components/projects/info/info-form/info-form";
 import Info from "../../../components/projects/info/info.astro";
 import Logo from "../../../components/projects/logo/logo.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -88,11 +89,15 @@ const floorPlans = [
 
 	<Logo logo="/projects/ophira.svg" project={project} />
 
-	<Info project={project} description={description} />
+	<Info
+		projectName={project}
+		project={Project.ophira}
+		description={description}
+	/>
 
 	<FloorPlan project={project} items={floorPlans} />
 
 	<Amenities text={aminitiesText} items={aminitiesItem} />
 
-	<Enquire project={project} image={map} />
+	<Enquire project={Project.ophira} image={map} />
 </Layout>

@@ -1,20 +1,21 @@
 ---
 interface Props {
-	project: string;
+	project: Project;
 	description: string;
+	projectName: string;
 }
 
-const { project, description } = Astro.props;
+const { project, projectName, description } = Astro.props;
 
-import InfoForm from "./info-form/info-form";
+import InfoForm, { Project, Title } from "./info-form/info-form";
 import styles from "./info.module.scss";
 ---
 
 <div id="overview" class={`container ${styles.container}`}>
 	<div class={styles.info}>
-		<h3>{project}</h3>
+		<h3>{projectName}</h3>
 		<p>{description}</p>
 	</div>
 
-	<InfoForm download={false} project={project} client:load />
+	<InfoForm title={Title.enquire} project={project} client:load />
 </div>
