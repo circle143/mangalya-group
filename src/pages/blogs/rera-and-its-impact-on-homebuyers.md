@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology"]
 title: "RERA and Its Impact on Homebuyers: What You Need to Know"
 author: "Aditya Mohan"

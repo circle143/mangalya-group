@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology"]
 title: "Things to Consider Before Buying a Property in India"
 author: "Aditya Mohan"

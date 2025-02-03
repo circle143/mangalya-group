@@ -1,0 +1,25 @@
+---
+import Info from "../components/blogs/info.astro";
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+
+const { title, date, category, author, image } = frontmatter;
+---
+
+<Layout title={title}>
+	<div style={{ display: "grid", gap: "2rem" }} class="container">
+		<Info
+			title={title}
+			date={date}
+			author={author}
+			categories={category}
+			url={""}
+			image={image}
+		/>
+
+		<div class="blog-content" style={{ display: "grid", gap: "1.25rem" }}>
+			<slot />
+		</div>
+	</div>
+</Layout>

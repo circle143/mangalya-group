@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology"]
 title: "Sustainable Housing: The Future of Residential Real Estate in India"
 author: "Aditya Mohan"

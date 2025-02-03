@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology", "Other Category"]
 title: "Top 10 Builders in Delhi NCR: A Guide to Trusted Developers"
 author: "Aditya Mohan"

@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology"]
 title: "Luxury vs. Affordable Housing: Which One Should You Choose?"
 author: "Aditya Mohan"

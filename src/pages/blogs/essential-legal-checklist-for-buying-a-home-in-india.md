@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology"]
 title: "Essential Legal Checklist for Buying a Home in India"
 author: "Aditya Mohan"

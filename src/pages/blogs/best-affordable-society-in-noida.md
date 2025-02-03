@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology", "Other Category"]
 title: "Best Affordable Societies in Noida for Homebuyers in 2025"
 author: "Aditya Mohan"

@@ -84,7 +84,7 @@ body:has(dialog[open]) {
 h2 {
 	font-weight: 600;
 
-	font-size: clamp(3rem, 4vi, 3.75rem);
+	font-size: clamp(1.325rem, 2vi, 1.75rem);
 }
 
 .text {
@@ -116,5 +116,16 @@ dialog {
 	&::backdrop {
 		backdrop-filter: blur(7.5px);
 		opacity: 1;
+	}
+}
+
+.blog-content {
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		max-height: 30rem;
+
+		border-radius: 0.75rem;
 	}
 }

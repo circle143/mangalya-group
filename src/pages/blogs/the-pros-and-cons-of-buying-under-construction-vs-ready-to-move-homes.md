@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 category: ["Technology"]
 title: "The Pros and Cons of Buying Under-Construction vs. Ready-to-Move Homes"
 author: "Aditya Mohan"

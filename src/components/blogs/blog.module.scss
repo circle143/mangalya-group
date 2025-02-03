@@ -1,8 +1,40 @@
 @use "/src/styles/abstracts" as ab;
 
 .info {
+	--_h: clamp(1.25rem, 1.75vi, 1.5rem);
+
 	display: grid;
 	gap: 1rem;
+
+	&[data-main="true"] {
+		--_h: clamp(1.5rem, 3vi, 2rem);
+		margin-block-start: clamp(3rem, 4vi, 4rem);
+
+		h3 {
+			text-align: center;
+			text-wrap: balance;
+
+			@include ab.screen-48 {
+				text-align: left;
+			}
+		}
+
+		.meta {
+			justify-content: center;
+
+			@include ab.screen-48 {
+				justify-content: start;
+			}
+		}
+
+		.categories {
+			justify-content: center;
+
+			@include ab.screen-48 {
+				justify-content: start;
+			}
+		}
+	}
 
 	.categories {
 		display: flex;
@@ -22,8 +54,9 @@
 	}
 
 	h3 {
+		font-size: var(--_h);
 		a {
-			font-size: clamp(1.25rem, 1.75vi, 1.5rem);
+			font-size: var(--_h);
 		}
 	}
 
@@ -31,6 +64,17 @@
 		font-size: 1rem;
 		display: flex;
 		gap: 1rem;
+	}
+
+	.heroImage {
+		img {
+			border-radius: 0.5rem;
+			width: 100%;
+			min-height: 20rem;
+			height: auto;
+			max-height: 30rem;
+			object-fit: cover;
+		}
 	}
 }
 
@@ -70,7 +114,6 @@
 
 			img {
 				border-radius: inherit;
-				display: block;
 				width: 100%;
 				min-height: 20rem;
 				height: auto;

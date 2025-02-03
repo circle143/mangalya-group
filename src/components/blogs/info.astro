@@ -1,4 +1,5 @@
 ---
+import { undefined, type string } from "astro:schema";
 import styles from "./blog.module.scss";
 
 interface Props {
@@ -7,12 +8,18 @@ interface Props {
 	author: string;
 	date: string;
 	url: string;
+	image?: string;
 }
 
-const { categories, title, author, date, url } = Astro.props;
+const { categories, title, author, date, url, image } = Astro.props;
+
+let main = false;
+if (image) {
+	main = true;
+}
 ---
 
-<div class={styles.info}>
+<div class={styles.info} data-main={main}>
 	{
 		categories.length > 0 && (
 			<div class={styles.categories}>
@@ -23,11 +30,29 @@ const { categories, title, author, date, url } = Astro.props;
 		)
 	}
 
-	<h3><a data-type="link" data-variant="normal" href={url}>{title}</a></h3>
+	<h3>
+		{
+			!image ? (
+				<a data-type="link" data-variant="normal" href={url}>
+					{title}
+				</a>
+			) : (
+				title
+			)
+		}
+	</h3>
 
 	<div class={styles.meta}>
 		<p class={styles.author}>{author}</p>
 
 		<p class={styles.data}>{date}</p>
 	</div>
+
+	{
+		image && (
+			<div class={styles.heroImage}>
+				<img src={image} />
+			</div>
+		)
+	}
 </div>
