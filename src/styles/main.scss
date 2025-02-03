@@ -68,6 +68,10 @@ body {
 	color: var(--text);
 }
 
+body:has(dialog[open]) {
+	overflow: hidden;
+}
+
 .clash-display {
 	font-family: "Clash Display";
 }
@@ -90,4 +94,19 @@ h2 {
 .error {
 	font-size: 1rem;
 	color: var(--error);
+}
+
+dialog {
+	outline: none;
+	border: none;
+
+	border-radius: 0.75rem;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+	width: min(90%, var(--max-width));
+
+	&::backdrop {
+		backdrop-filter: blur(7.5px);
+		opacity: 1;
+	}
 }

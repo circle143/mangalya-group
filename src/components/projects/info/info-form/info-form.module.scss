@@ -7,6 +7,10 @@
 	padding-block: clamp(1.5rem, 2.5vi, 2rem);
 	border-radius: 1rem;
 
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+
 	h3 {
 		text-align: center;
 		font-size: 1.5rem;
@@ -16,11 +20,6 @@
 		}
 	}
 
-	display: grid;
-	gap: 1rem;
-
-	align-content: start;
-
 	form {
 		display: grid;
 		gap: 1rem;
@@ -28,6 +27,7 @@
 
 		input {
 			padding-inline-start: 0.5rem;
+			width: 100%;
 		}
 
 		> div {
