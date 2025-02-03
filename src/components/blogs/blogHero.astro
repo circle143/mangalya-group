@@ -1,0 +1,26 @@
+---
+import styles from "./blog.module.scss";
+import Info from "./info.astro";
+
+const { post, url } = Astro.props;
+const { title, date, author, image, category } = post;
+const categories = category as string[];
+---
+
+<div class={styles.hero}>
+	<h1>The Mangalya Chronicle</h1>
+
+	<div class={styles.main}>
+		<div class={styles.image}>
+			<img src={image} />
+
+			<Info
+				title={title}
+				date={date}
+				author={author}
+				categories={categories}
+				url={url}
+			/>
+		</div>
+	</div>
+</div>

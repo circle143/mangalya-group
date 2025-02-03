@@ -1,0 +1,33 @@
+---
+import styles from "./blog.module.scss";
+
+interface Props {
+	categories: string[];
+	title: string;
+	author: string;
+	date: string;
+	url: string;
+}
+
+const { categories, title, author, date, url } = Astro.props;
+---
+
+<div class={styles.info}>
+	{
+		categories.length > 0 && (
+			<div class={styles.categories}>
+				{categories.map((item) => {
+					return <p>{item}</p>;
+				})}
+			</div>
+		)
+	}
+
+	<h3><a data-type="link" data-variant="normal" href={url}>{title}</a></h3>
+
+	<div class={styles.meta}>
+		<p class={styles.author}>{author}</p>
+
+		<p class={styles.data}>{date}</p>
+	</div>
+</div>

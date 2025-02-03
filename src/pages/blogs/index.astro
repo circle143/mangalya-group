@@ -1,0 +1,35 @@
+---
+import Blog from "../../components/blogs/blog.astro";
+import BlogHero from "../../components/blogs/blogHero.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const allPosts = await Astro.glob("./*.md");
+let heroPost;
+
+allPosts.forEach((post) => {
+	let title = post.frontmatter.title as string;
+
+	if (title.startsWith("Top 10 Builders")) {
+		heroPost = post;
+	}
+});
+
+if (!heroPost) {
+	heroPost = allPosts[0];
+}
+---
+
+<Layout title="Mangalya Group - Blogs">
+	<div
+		style={{
+			display: "grid",
+			gap: "clamp(3rem, 4vi, 4rem)",
+			marginBlockStart: "clamp(3rem, 4vi, 4rem)",
+		}}
+		class="container"
+	>
+		<BlogHero post={heroPost.frontmatter} url={heroPost.url} />
+
+		<Blog allPosts={allPosts} />
+	</div>
+</Layout>

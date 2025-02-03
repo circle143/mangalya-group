@@ -1,0 +1,36 @@
+---
+import styles from "./blog.module.scss";
+import Info from "./info.astro";
+
+const { allPosts } = Astro.props;
+
+const posts = allPosts.filter((post: any) => {
+	let title = post.frontmatter.title as string;
+
+	return !title.startsWith("Top 10 Builders");
+});
+---
+
+<div class={styles.allPost}>
+	{
+		posts.map((post: any) => {
+			const item = post.frontmatter;
+			return (
+				<div>
+					<div class={styles.item}>
+						<div class={styles.itemImage}>
+							<img src={item.image} />
+						</div>
+						<Info
+							title={item.title}
+							date={item.date}
+							author={item.author}
+							categories={item.category}
+							url={post.url}
+						/>
+					</div>
+				</div>
+			);
+		})
+	}
+</div>
