@@ -109,7 +109,7 @@ dialog {
 	padding: var(--_padding);
 
 	&[data-full] {
-		--_w: var(var(--max-width));
+		--_w: var(--max-width);
 		--_padding: 1rem;
 	}
 
