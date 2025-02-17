@@ -33,6 +33,11 @@ const modalId = `${project}-download-brochure`;
 	</div>
 
 	<dialog id={modalId}>
-		<InfoForm project={project} title={Title.download} modal={true} />
+		<InfoForm
+			project={project}
+			title={Title.download}
+			modal={true}
+			client:load
+		/>
 	</dialog>
 </div>

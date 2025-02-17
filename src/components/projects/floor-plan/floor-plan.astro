@@ -39,6 +39,11 @@ const modalId = `${project}-know-more-modal`;
 	</div>
 
 	<dialog id={modalId}>
-		<InfoForm project={project} title={Title.enquire} modal={true} />
+		<InfoForm
+			project={project}
+			title={Title.enquire}
+			modal={true}
+			client:load
+		/>
 	</dialog>
 </div>
