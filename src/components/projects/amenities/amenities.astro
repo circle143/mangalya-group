@@ -35,9 +35,7 @@ import styles from "./amenities.module.scss";
 						items.map((item) => {
 							return (
 								<div class={styles.embla__slide}>
-									<img src={item.image} alt="" />
-
-									<p>{item.name}</p>
+									<img src={item.image} alt={item.name} />
 								</div>
 							);
 						})

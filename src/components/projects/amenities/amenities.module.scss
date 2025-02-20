@@ -26,7 +26,7 @@
 		}
 
 		.carousel {
-			--_h: 25rem;
+			--_h: 100%;
 			--slide-size: 100%;
 			--slide-spacing: 1rem;
 			--offset: 0px;
@@ -89,20 +89,20 @@
 				min-width: 0;
 				padding-left: var(--slide-spacing);
 
-				position: relative;
+				// position: relative;
 
-				p {
-					position: absolute;
+				// p {
+				// 	position: absolute;
 
-					font-size: 1.5rem;
-					bottom: 0;
-					padding-block: 0.25rem;
-					width: 100%;
-					text-align: center;
+				// 	font-size: 1.5rem;
+				// 	bottom: 0;
+				// 	padding-block: 0.25rem;
+				// 	width: 100%;
+				// 	text-align: center;
 
-					font-weight: 600;
-					background-color: hsl(from var(--light-grey) h s l / 0.25);
-				}
+				// 	font-weight: 600;
+				// 	background-color: hsl(from var(--light-grey) h s l / 0.25);
+				// }
 			}
 		}
 	}
