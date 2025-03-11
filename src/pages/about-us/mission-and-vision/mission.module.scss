@@ -6,6 +6,7 @@
 
 	h3 {
 		line-height: 1.375em;
+		text-wrap: balance;
 	}
 
 	.text {
@@ -16,7 +17,6 @@
 		justify-content: start;
 
 		text-align: center;
-		text-wrap: balance;
 
 		@include ab.screen-40 {
 			text-align: left;

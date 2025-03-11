@@ -45,6 +45,10 @@ const items = [
 		text: "Career",
 		link: "/career",
 	},
+    {
+		text: "CSR Activities",
+		link: "",
+	},
 ];
 
 const modalId = "nav-modal-id";
@@ -79,6 +83,7 @@ const modalId = "nav-modal-id";
 							const hasSubLink = item.sublink !== undefined;
 
 							if (hasSubLink) {
+                            <!-- call function here for nested navigation  -->
 								return (
 									<li class={styles.link_item}>
 										<p
@@ -145,7 +150,7 @@ const modalId = "nav-modal-id";
 		</div>
 
 		<div class={styles.action}>
-			<div class={styles.expert}>
+			<!-- <div class={styles.expert}>
 				<div class={styles.icon}>
 					<Icon name="fa6-solid:phone" />
 				</div>
@@ -158,7 +163,7 @@ const modalId = "nav-modal-id";
 						data-variant="normal">{phoneNumber}</a
 					>
 				</div>
-			</div>
+			</div> -->
 
 			<button
 				data-type="button"

@@ -5,12 +5,12 @@
 
 	.image {
 		--slide-size: 100%;
-		height: var(--_h);
+		// height: var(--_h);
 
 		img {
 			object-fit: cover;
 			width: calc(100 * var(--vw));
-			height: var(--_h);
+			// height: var(--_h);
 		}
 
 		.embla__viewport {
