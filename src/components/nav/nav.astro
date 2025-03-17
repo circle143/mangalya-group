@@ -23,17 +23,34 @@ const items = [
 		text: "Our Projects",
 		link: "/our-projects/",
 		sublink: [
+			// {
+			// 	text: "Anant Horizon",
+			// 	link: "/our-projects/anant-horizon",
+			// },
+			// {
+			// 	text: "Novena Greens",
+			// 	link: "/our-projects/novena-greens",
+			// },
+			// {
+			// 	text: "Ophira",
+			// 	link: "/our-projects/ophira",
+			// },
 			{
-				text: "Anant Horizon",
-				link: "/our-projects/anant-horizon",
+				text: "Real Estate",
+				sublink: [
+					{
+						text: "Ongoing Projects",
+						link: "/#ongoing",
+					},
+					{
+						text: "Delivered Projects",
+						link: "/#delivered",
+					},
+				],
 			},
 			{
-				text: "Novena Greens",
-				link: "/our-projects/novena-greens",
-			},
-			{
-				text: "Ophira",
-				link: "/our-projects/ophira",
+				text: "Other Ventures",
+				link: "/other-ventures",
 			},
 		],
 	},
@@ -45,7 +62,7 @@ const items = [
 		text: "Career",
 		link: "/career",
 	},
-    {
+	{
 		text: "CSR Activities",
 		link: "",
 	},
@@ -83,7 +100,6 @@ const modalId = "nav-modal-id";
 							const hasSubLink = item.sublink !== undefined;
 
 							if (hasSubLink) {
-                            <!-- call function here for nested navigation  -->
 								return (
 									<li class={styles.link_item}>
 										<p
@@ -95,24 +111,71 @@ const modalId = "nav-modal-id";
 										</p>
 
 										<div class={styles.sublinks}>
-											<ul>
+											<ul data-level="1">
 												{item.sublink.map(
-													({ text, link }) => {
+													({
+														text,
+														link,
+														sublink,
+													}) => {
 														return (
 															<li
 																class={
 																	styles.sublink_item
 																}
 															>
-																<a
-																	data-path={
-																		link
-																	}
-																	class={`sublink ${styles.sublink}`}
-																	href={link}
-																>
-																	{text}
-																</a>
+																{sublink ? (
+																	<p
+																		class={`sublink ${styles.sublink}`}
+																	>
+																		{text}
+
+																		{sublink && (
+																			<ul data-level="2">
+																				{sublink.map(
+																					({
+																						link,
+																						text,
+																					}) => {
+																						return (
+																							<li
+																								class={
+																									styles.sublink_item
+																								}
+																							>
+																								<a
+																									data-path={
+																										link
+																									}
+																									class={`sublink ${styles.sublink}`}
+																									href={
+																										link
+																									}
+																								>
+																									{
+																										text
+																									}{" "}
+																								</a>
+																							</li>
+																						);
+																					}
+																				)}
+																			</ul>
+																		)}
+																	</p>
+																) : (
+																	<a
+																		data-path={
+																			link
+																		}
+																		class={`sublink ${styles.sublink}`}
+																		href={
+																			link
+																		}
+																	>
+																		{text}
+																	</a>
+																)}
 															</li>
 														);
 													}
