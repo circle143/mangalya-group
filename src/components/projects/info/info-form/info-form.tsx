@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./info-form.module.scss";
 import Loader from "../../../Loader/Loader";
+import { formSchema } from "../../../../scripts/validation";
 
 export enum Title {
 	enquire = "Enquire Now",
@@ -9,7 +10,7 @@ export enum Title {
 }
 
 export enum Project {
-	mangalya = "mangalya-group",
+	mangalya = "mangalya-group", // for nav form
 	novena = "novena-greens",
 	anant = "anant-horizon",
 	ophira = "ophira",
@@ -24,15 +25,100 @@ interface InfoFormProps {
 const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 	const buttonRef = useRef<HTMLButtonElement | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [message, setMessage] = useState<string | null>(null);
 	const [submitting, setSubmitting] = useState<boolean>(false);
+
+	const [formInput, setFormInput] = useState({
+		name: "",
+		phone: "",
+		email: "",
+	});
+
+	const validate = () => {
+		try {
+			formSchema.validateSync(formInput, {
+				abortEarly: false,
+			});
+			return true;
+		} catch (err) {
+			return false;
+		}
+	};
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		if (submitting) return;
 
-		// on success
-		// handleDownload();
-		closeModalIfOpen();
+		if (!validate()) {
+			// invalid form fields
+			setError("Invalid form details");
+			return;
+		}
+
+		setSubmitting(true);
+		setError(null);
+		setMessage(null);
+		const location = getTitle();
+		const reqBody = {
+			location,
+			...formInput,
+		};
+
+		// send req to backend
+		fetch("url", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(reqBody),
+		})
+			.then((res) => res.json())
+			.then((res) => {
+				// if success
+				handleDownload();
+				closeModalIfOpen();
+				setMessage("Successfully submitted your details.");
+				setFormInput({
+					name: "",
+					phone: "",
+					email: "",
+				});
+			})
+			.catch((err) => {
+				// show toast
+				setError("Error submitting form details");
+			})
+			.finally(() => setSubmitting(false));
+	};
+
+	const getTitle = () => {
+		if (title == Title.contact) {
+			return "Footer Contact Us";
+		}
+
+		if (title == Title.download) {
+			switch (project) {
+				case Project.novena:
+					return "Mangalya Novena Greens Download Brochure";
+				case Project.anant:
+					return "Mangalya Anant Download Brochure";
+				case Project.ophira:
+					return "Mangalya Ophira Download Brochure";
+				default:
+					return "Download Brochure";
+			}
+		}
+
+		switch (project) {
+			case Project.novena:
+				return "Enquire Now Mangalya Novena";
+			case Project.anant:
+				return "Enquire Now Mangalya Anant";
+			case Project.ophira:
+				return "Enquire Now Mangalya Ophira";
+			default:
+				return "Enquire Now Nav Bar";
+		}
 	};
 
 	const handleDownload = () => {
@@ -85,6 +171,15 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 		buttonRef.current?.click();
 	};
 
+	const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const key = e.target.name;
+		const value = e.target.value;
+
+		setFormInput((prev) => {
+			return { ...prev, [key]: value };
+		});
+	};
+
 	return (
 		<>
 			<button
@@ -119,21 +214,31 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 						disabled={submitting}
 						type="text"
 						placeholder="Name"
+						name="name"
+						value={formInput.name}
+						onChange={onInputChange}
 					/>
 
 					<input
 						disabled={submitting}
 						type="tel"
 						placeholder="Ph. No."
+						name="phone"
+						value={formInput.phone}
+						onChange={onInputChange}
 					/>
 
 					<input
 						disabled={submitting}
 						type="email"
 						placeholder="Email ID"
+						name="email"
+						value={formInput.email}
+						onChange={onInputChange}
 					/>
 
 					{error && <p className="error">{error}</p>}
+					{message && <p className="success">{message}</p>}
 
 					<div>
 						<button
