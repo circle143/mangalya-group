@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./form.module.scss";
 import Loader from "../../Loader/Loader";
-import { formSchema } from "../../../scripts/validation";
+import { formSchema, toE164, url } from "../../../scripts/validation";
 
 const Form = () => {
 	const [error, setError] = useState<string | null>(null);
@@ -36,6 +36,9 @@ const Form = () => {
 			return;
 		}
 
+		const phone = toE164(formInput.phone);
+		if (phone == null) return;
+
 		setSubmitting(true);
 		setError(null);
 		setMessage(null);
@@ -43,10 +46,11 @@ const Form = () => {
 		const reqBody = {
 			location,
 			...formInput,
+			phone,
 		};
 
 		// send req to backend
-		fetch("url", {
+		fetch(url, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -55,6 +59,8 @@ const Form = () => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
+				if (res.error) throw new Error(res.message);
+
 				// if success
 				setMessage("Successfully submitted your details.");
 				setFormInput({

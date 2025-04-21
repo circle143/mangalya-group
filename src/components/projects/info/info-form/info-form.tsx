@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./info-form.module.scss";
 import Loader from "../../../Loader/Loader";
-import { formSchema } from "../../../../scripts/validation";
+import { formSchema, toE164, url } from "../../../../scripts/validation";
 
 export enum Title {
 	enquire = "Enquire Now",
@@ -55,6 +55,9 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 			return;
 		}
 
+		const phone = toE164(formInput.phone);
+		if (phone == null) return;
+
 		setSubmitting(true);
 		setError(null);
 		setMessage(null);
@@ -62,10 +65,11 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 		const reqBody = {
 			location,
 			...formInput,
+			phone,
 		};
 
 		// send req to backend
-		fetch("url", {
+		fetch(url, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -74,6 +78,8 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
+				if (res.error) throw new Error(res.message);
+
 				// if success
 				handleDownload();
 				closeModalIfOpen();
