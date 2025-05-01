@@ -131,7 +131,7 @@ const InfoForm = ({ project, title, modal = false }: InfoFormProps) => {
 		if (title != Title.download) return;
 		const novena = {
 			name: "Novena-Greens-Brochure.pdf",
-			link: "/brochure/novena_brochure.pdf",
+			link: "/brochure/Novena-Greens-Brochure.pdf",
 		};
 
 		const anant = {
